@@ -11,6 +11,7 @@ class SessionHelper:  # Помощник по работе с сессией
         wd.find_element_by_name("username").click()
         wd.find_element_by_name("username").clear()
         wd.find_element_by_name("username").send_keys(username)
+        wd.find_element_by_xpath("//input[@value='Login']").click()
         wd.find_element_by_name("password").click()
         wd.find_element_by_name("password").clear()
         wd.find_element_by_name("password").send_keys(password)
@@ -18,6 +19,7 @@ class SessionHelper:  # Помощник по работе с сессией
 
     def logout(self):
         wd = self.app.wd
+        wd.find_element_by_xpath("//div[@id='navbar-container']/div[2]/ul/li[3]/a/span").click()
         wd.find_element_by_link_text("Logout").click()
         wd.find_element_by_name("username")
 
@@ -26,7 +28,7 @@ class SessionHelper:  # Помощник по работе с сессией
 
     def get_logged_user(self):
         wd = self.app.wd
-        return wd.find_element_by_css_selector("td.login-info-left span").text
+        return wd.find_element_by_xpath("//span[@class='label hidden-xs label-default arrowed']").text
 
     def is_logged_in(self):
         wd = self.app.wd

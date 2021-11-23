@@ -1,6 +1,7 @@
 # Слой вспомогательных методов для тестов ("прослойка") - фикстура
 from selenium import webdriver
 from fixture.session import SessionHelper
+from fixture.projects import ProjectHelper
 
 
 class Application:
@@ -17,6 +18,7 @@ class Application:
             raise ValueError('Unrecognized browser %s' % browser)
         self.wd.implicitly_wait(1)
         self.session = SessionHelper(self)
+        self.projects = ProjectHelper(self)
         self.base_url = base_url
         self.username = username
         self.password = password

@@ -1,6 +1,8 @@
 import re
 import os.path
 import json
+import time
+
 from model.projects import Project
 
 
@@ -57,4 +59,12 @@ class ProjectHelper:
             contact_list.append(Project(name=name, status=status, view_status=view_status,
                                         description=description))
         return list(contact_list)
+
+    def delete_project_by_index(self, name):
+        wd = self.app.wd
+        self.open_manage_project_page()
+        wd.find_element_by_link_text(name).click()
+        # удалить случайную группу
+        wd.find_element_by_xpath("//input[@value='Delete Project']").click()
+        wd.find_element_by_xpath("//input[@value='Delete Project']").click()
 

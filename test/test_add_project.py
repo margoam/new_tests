@@ -17,4 +17,5 @@ def test_add_project(app, project):
     old_list = app.projects.get_projects_list()
     app.projects.create_new_project(project)
     new_list = app.projects.get_projects_list()
-    assert len(old_list) + 1 == len(new_list)
+    old_list.append(project)
+    assert sorted(old_list) == sorted(new_list)

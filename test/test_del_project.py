@@ -9,4 +9,5 @@ def test_delete_project(app):
     project = random.choice(old_list)
     app.projects.delete_project_by_index(project.name)
     new_list = app.projects.get_projects_list()
-    assert len(old_list) - 1 == len(new_list)
+    old_list.remove(project)
+    assert sorted(old_list) == sorted(new_list)

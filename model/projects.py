@@ -24,3 +24,5 @@ class Project:
                (self.description is None or other.description is None or
                 self.description == other.description)
 
+    def compare_name(self):
+        return self.name

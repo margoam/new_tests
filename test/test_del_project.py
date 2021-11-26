@@ -10,4 +10,4 @@ def test_delete_project(app):
     app.projects.delete_project_by_index(project.name)
     new_list = app.projects.get_projects_list()
     old_list.remove(project)
-    assert sorted(old_list) == sorted(new_list)
+    assert sorted(old_list, key=Project.compare_name) == sorted(new_list, key=Project.compare_name)

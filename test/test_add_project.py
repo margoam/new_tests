@@ -9,7 +9,7 @@ def random_string(prefix, maxlen):
     return prefix + "".join([random.choice(symbols) for _ in range(random.randrange(maxlen))])
 
 
-testdata = [Project(name=random_string("name", 10), description=random_string("header", 15))]
+testdata = [Project(name=random_string("name", 10), description=random_string("descr", 15))]
 
 
 @pytest.mark.parametrize("project", testdata, ids=[repr(x) for x in testdata])

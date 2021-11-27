@@ -13,5 +13,5 @@ class SoapHelper:
         list_from_soap = client.service.mc_projects_get_user_accessible(username, password)
         list = []
         for row in list_from_soap:
-            list.append(Project(name=row[1]))
+            list.append(Project(name=row[1], description=row[7]))
         return list

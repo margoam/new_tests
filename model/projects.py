@@ -13,7 +13,7 @@ class Project:
         self.id = id
 
     def __repr__(self):
-        return "%s %s %s %s %s" % (self.name, self.status, self.global_categories, self.view_status,
+        return "%s %s %s %s %s %s" % (self.id, self.name, self.status, self.global_categories, self.view_status,
                                    self.description)
 
     def __eq__(self, other):
